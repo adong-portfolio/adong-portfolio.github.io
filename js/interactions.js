@@ -18,7 +18,8 @@
      手机(<=768)走反流式重排,不缩放;>=1920 原生。(zoom 是布局级,sticky/滚动正常) */
   const fitZoom = () => {
     const w = window.innerWidth;
-    document.body.style.zoom = (w > 768 && w < 1920) ? (w / 1920).toString() : '';
+    const scale = (w > 768 && w < 1920) ? (w / 1920) : 1;
+    document.body.style.zoom = scale === 1 ? '' : scale.toString();
   };
   fitZoom();
   window.addEventListener('resize', fitZoom, { passive: true });
@@ -247,6 +248,33 @@
     };
     wrap(tx);
     const N = chars.length;
+    if (innerWidth >= 900) {
+      // 桌面端逐字显示：每个字符只写入一次，不随滚动反复遍历全部字符。
+      chars.forEach(char => {
+        char.style.opacity = String(dim);
+        char.style.transition = 'opacity .08s linear';
+      });
+      const playCharacters = () => {
+        let shown = 0;
+        let startedAt = 0;
+        const frame = now => {
+          if (!startedAt) startedAt = now;
+          const target = Math.min(N, Math.floor((now - startedAt) / 6) + 1);
+          while (shown < target) chars[shown++].style.opacity = String(full);
+          if (shown < N) requestAnimationFrame(frame);
+        };
+        requestAnimationFrame(frame);
+      };
+      const io = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          playCharacters();
+          io.disconnect();
+        }
+      }, { threshold: 0.14 });
+      io.observe(tx);
+      continue;
+    }
     const band = Math.max(5, N * 0.05);  // 过渡带收窄→明暗分界更锐利,反差更明显
     const update = () => {
       const r = tx.getBoundingClientRect();

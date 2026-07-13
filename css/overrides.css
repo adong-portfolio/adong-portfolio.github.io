@@ -839,3 +839,32 @@
 
 /* 手机端平台跑马灯:每项占 ~半屏(2个/屏),配合 #home 区不缩放的反流式 */
 @media (max-width:768px){ .plat-marquee > *{ width:50vw !important; } }
+
+/* 桌面端项目卡片交互修正。 */
+@media (min-width:900px){
+  /* 项目 01 悬停态保持原行高,避免与项目 02 之间多出一截空白。 */
+  .frame-1937106970--1037,
+  .frame-1937106970--1037:hover{
+    height:176.8px !important;
+  }
+  /* 缩略图只做水平上浮,取消设计稿变体里的斜向旋转矩阵。 */
+  .frame-1937106970--1037 > .v-alt [data-pid='413:115742']{
+    transform:translate3d(0,24px,0) rotate(0deg) !important;
+    transform-origin:center center !important;
+    transition:transform .55s cubic-bezier(.215,.61,.355,1) !important;
+  }
+  .frame-1937106970--1037:hover > .v-alt [data-pid='413:115742']{
+    transform:translate3d(0,-8px,0) rotate(0deg) !important;
+  }
+  .frame-1937106970--1037 > .v-alt [data-pid='138:372']{
+    width:684.9px !important;
+    height:456.6px !important;
+    transform:translate3d(0,44.8px,0) !important;
+    transition:transform .55s cubic-bezier(.215,.61,.355,1) !important;
+  }
+  .frame-1937106970--1037:hover > .v-alt [data-pid='138:372']{
+    width:684.9px !important;
+    height:456.6px !important;
+    transform:translate3d(0,0,0) !important;
+  }
+}
