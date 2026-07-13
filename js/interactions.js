@@ -32,6 +32,32 @@
     return;
   }
 
+  /* ---------- 延迟视频加载:避免首屏同时下载 hover 动效和底部背景视频 ---------- */
+  document.addEventListener('DOMContentLoaded', () => {
+    const videos = [...document.querySelectorAll('video[data-src]')];
+    if (!videos.length) return;
+    const loadVideo = (video) => {
+      if (!video.dataset.src) return;
+      video.src = video.dataset.src;
+      video.removeAttribute('data-src');
+      video.load();
+      if (video.dataset.autoplay === '1') video.play().catch(() => {});
+    };
+    const io = 'IntersectionObserver' in window && new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        loadVideo(entry.target);
+        io.unobserve(entry.target);
+      }
+    }, { rootMargin: '480px 0px' });
+    for (const video of videos) {
+      if (io) io.observe(video);
+      else loadVideo(video);
+      const host = video.closest('[data-variant-hover], .v-alt, .v-sub') || video.parentElement;
+      if (host) host.addEventListener('pointerenter', () => loadVideo(video), { once: true, passive: true });
+    }
+  });
+
   const bezier = (e) => `cubic-bezier(${e.join(',')})`;
   const byNid = (nid) => document.querySelector(`[data-nid="${nid}"]`);
   const fx = (el, dx, dy) => el.style.setProperty('--fx', `translate(${dx}px, ${dy}px)`);

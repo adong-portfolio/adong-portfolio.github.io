@@ -316,6 +316,8 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('[data-particles]').forEach(mount);
+    const start = () => document.querySelectorAll('[data-particles]').forEach(mount);
+    if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 1200 });
+    else setTimeout(start, 700);
   });
 })();

@@ -1,6 +1,11 @@
 @font-face{font-family:'Inter';src:url('../fonts/Inter.woff2') format('woff2');font-weight:100 900;font-display:swap;}
-@font-face{font-family:'Noto Sans SC';src:url('../fonts/NotoSansSC.woff2') format('woff2');font-weight:100 900;font-display:swap;}
-@font-face{font-family:'Noto Sans SC';src:url('../fonts/NotoSansSC-rest.woff2') format('woff2');font-weight:100 900;font-display:swap;}
+@font-face{font-family:'Noto Sans SC';src:local('PingFang SC Ultralight'),local('PingFangSC-Ultralight');font-weight:100;font-display:swap;}
+@font-face{font-family:'Noto Sans SC';src:local('PingFang SC Thin'),local('PingFangSC-Thin');font-weight:200;font-display:swap;}
+@font-face{font-family:'Noto Sans SC';src:local('PingFang SC Light'),local('PingFangSC-Light');font-weight:300;font-display:swap;}
+@font-face{font-family:'Noto Sans SC';src:local('PingFang SC Regular'),local('PingFangSC-Regular'),local('Microsoft YaHei');font-weight:400;font-display:swap;}
+@font-face{font-family:'Noto Sans SC';src:local('PingFang SC Medium'),local('PingFangSC-Medium'),local('Microsoft YaHei');font-weight:500;font-display:swap;}
+@font-face{font-family:'Noto Sans SC';src:local('PingFang SC Semibold'),local('PingFangSC-Semibold'),local('Microsoft YaHei Bold');font-weight:600 700;font-display:swap;}
+@font-face{font-family:'Noto Sans SC';src:local('PingFang SC Semibold'),local('PingFangSC-Semibold'),local('Microsoft YaHei Bold');font-weight:800 900;font-display:swap;}
 @font-face{font-family:'Persagy2.0';src:url('../fonts/Persagy-Regular.woff') format('woff');font-weight:400;font-display:swap;}
 @font-face{font-family:'Persagy2.0';src:url('../fonts/Persagy-Medium.woff') format('woff');font-weight:500;font-display:swap;}
 
@@ -10,6 +15,7 @@ body{background:rgb(12,12,12);font-family:'Inter','Noto Sans SC',sans-serif;
   -webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,video{user-select:none}
 #site-header{position:sticky;top:0;z-index:100}
+#about,#collab,#skills,#projects,#thanks{content-visibility:auto;contain-intrinsic-size:900px}
 .page{display:flex;flex-direction:column;width:100%;margin:0 auto;
   min-height:6467.0px}
 /* 区块固定高度、内容可悬出:区块本身不拦截指针(空白区会盖住上一区的悬出内容),子层恢复 */
