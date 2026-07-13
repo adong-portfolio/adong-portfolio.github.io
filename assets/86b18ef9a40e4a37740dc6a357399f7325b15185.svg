@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="100%" overflow="visible" preserveAspectRatio="none" style="display: block;" viewBox="0 0 24 24" width="100%">
+<g clip-path="url(#clip0_0_11764)" id="system-regular-58-call-phone-hover-phone-ring 3">
+<g id="system-regular-47-chat-hover-chat (1) 1">
+<g id="Clip path group">
+<mask height="24" id="mask0_0_11764" maskUnits="userSpaceOnUse" style="mask-type:luminance" width="25" x="0" y="0">
+<g id="0ABZre5vOea">
+<path d="M0.5 0H24.5V24H0.5V0Z" fill="var(--fill-0, white)" id="Vector"/>
+</g>
+</mask>
+<g mask="url(#mask0_0_11764)">
+<g id="Group">
+<path d="M9.25 4.75H15.75C19.06 4.75 21.75 7.44 21.75 10.75V13.25C21.75 16.56 19.06 19.25 15.75 19.25H3.25V10.75C3.25 7.44 5.94 4.75 9.25 4.75Z" id="Vector_2" stroke="var(--stroke-0, black)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+<path d="M8.5 13C9.05228 13 9.5 12.5523 9.5 12C9.5 11.4477 9.05228 11 8.5 11C7.94772 11 7.5 11.4477 7.5 12C7.5 12.5523 7.94772 13 8.5 13Z" fill="var(--fill-0, black)" id="Vector_3"/>
+<path d="M13.5 12C13.5 12.2652 13.3946 12.5196 13.2071 12.7071C13.0196 12.8946 12.7652 13 12.5 13C12.2348 13 11.9804 12.8946 11.7929 12.7071C11.6054 12.5196 11.5 12.2652 11.5 12C11.5 11.7348 11.6054 11.4804 11.7929 11.2929C11.9804 11.1054 12.2348 11 12.5 11C12.7652 11 13.0196 11.1054 13.2071 11.2929C13.3946 11.4804 13.5 11.7348 13.5 12Z" fill="var(--fill-0, black)" id="Vector_4"/>
+<path d="M16.5 13C17.0523 13 17.5 12.5523 17.5 12C17.5 11.4477 17.0523 11 16.5 11C15.9477 11 15.5 11.4477 15.5 12C15.5 12.5523 15.9477 13 16.5 13Z" fill="var(--fill-0, black)" id="Vector_5"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_11764">
+<rect fill="white" height="24" width="24"/>
+</clipPath>
+</defs>
+</svg>

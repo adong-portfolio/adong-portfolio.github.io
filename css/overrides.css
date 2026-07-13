@@ -1,0 +1,841 @@
+
+/* Social pill: white fill expands from the pointer entry point. */
+.component-425--40{
+  --hover-x:50%;
+  --hover-y:50%;
+  isolation:isolate;
+  cursor:pointer;
+  transition:border-color .35s cubic-bezier(.215,.61,.355,1);
+}
+.component-425--40::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  border-radius:inherit;
+  background:#fff;
+  clip-path:circle(0 at var(--hover-x) var(--hover-y));
+  pointer-events:none;
+  transition:clip-path .72s cubic-bezier(.215,.61,.355,1);
+}
+.component-425--40.is-social-hovered{
+  border-color:#fff;
+}
+.component-425--40.is-social-hovered::before{
+  clip-path:circle(160% at var(--hover-x) var(--hover-y));
+}
+.component-425--40 > *{
+  z-index:1;
+}
+.component-425--40 .node--71,
+.component-425--40 .node--72,
+.component-425--40 .node--73,
+.component-425--40 .node--74,
+.component-425--40 .node--75,
+.component-425--40 .node--76,
+.component-425--40 .node--77,
+.component-425--40 .node--78{
+  pointer-events:none;
+}
+.component-425--40 .frame-1937106917--41{
+  position:relative;
+  z-index:2;
+}
+.component-425--40 .frame-1937106917--41{
+  opacity:.5;
+  transition:opacity .28s cubic-bezier(.215,.61,.355,1);
+}
+.component-425--40.is-social-hovered .frame-1937106917--41{
+  opacity:.9;
+}
+.component-425--40 img.union--44,
+.component-425--40 img.system-regular-58-call-phone--49,
+.component-425--40 img.system-regular-58-call-phone--63,
+.component-425--40 img.system-regular-58-call-phone--68,
+.component-425--40 img.vector--60{
+  filter:invert(1);
+  /* 与白色填充(::before clip-path .72s)同步:图标随填充扫到同步由白→灰→黑,
+     中途灰色在深/浅底都可见,避免"黑图标落在还没变白的深底上消失" */
+  transition:filter .72s cubic-bezier(.215,.61,.355,1);
+}
+.component-425--40.is-social-hovered img.union--44,
+.component-425--40.is-social-hovered img.system-regular-58-call-phone--49,
+.component-425--40.is-social-hovered img.system-regular-58-call-phone--63,
+.component-425--40.is-social-hovered img.system-regular-58-call-phone--68,
+.component-425--40.is-social-hovered img.vector--60{
+  filter:none;
+}
+.component-425--40 img.vector-439232113--43{
+  filter:none;
+  border-color:rgb(255,255,255);
+  transition:border-color .28s cubic-bezier(.215,.61,.355,1);
+}
+.component-425--40.is-social-hovered img.vector-439232113--43{
+  border-color:rgb(0,0,0);
+}
+.component-425--40 .system-regular-58-call-phone--42,
+.component-425--40 .system-regular-58-call-phone--48,
+.component-425--40 .system-regular-58-call-phone--62,
+.component-425--40 .system-regular-58-call-phone--67{
+  cursor:pointer;
+  transition:transform .24s cubic-bezier(.32,1.2,.32,1);
+  will-change:transform;
+}
+.component-425--40 .system-regular-58-call-phone--42:hover,
+.component-425--40 .system-regular-58-call-phone--48:hover,
+.component-425--40 .system-regular-58-call-phone--62:hover,
+.component-425--40 .system-regular-58-call-phone--67:hover{
+  transform:translateY(-2px);
+}
+.component-425--40 .system-regular-58-call-phone--42 > .v-alt,
+.component-425--40 .system-regular-58-call-phone--48 > .v-alt,
+.component-425--40 .system-regular-58-call-phone--62 > .v-alt,
+.component-425--40 .system-regular-58-call-phone--67 > .v-alt{
+  display:none;
+}
+.component-425--40 .system-regular-58-call-phone--42:hover > :not(.v-alt):not(.v-sub),
+.component-425--40 .system-regular-58-call-phone--48:hover > :not(.v-alt):not(.v-sub),
+.component-425--40 .system-regular-58-call-phone--62:hover > :not(.v-alt):not(.v-sub),
+.component-425--40 .system-regular-58-call-phone--67:hover > :not(.v-alt):not(.v-sub){
+  opacity:1 !important;
+}
+.component-425--40 .system-regular-58-call-phone--52{
+  opacity:1;
+}
+.component-425--40 .system-regular-58-call-phone--42:hover img.union--44{
+  animation:social-download-bounce .44s cubic-bezier(.32,1.2,.32,1) infinite alternate;
+}
+.component-425--40 .system-regular-58-call-phone--48:hover img.system-regular-58-call-phone--49,
+.component-425--40 .system-regular-58-call-phone--48:hover img.vector--60{
+  animation:social-phone-ring .42s cubic-bezier(.32,1.2,.32,1) infinite alternate;
+  transform-origin:50% 50%;
+}
+.component-425--40 .system-regular-58-call-phone--62:hover img.system-regular-58-call-phone--63{
+  animation:social-email-float .48s cubic-bezier(.32,1.2,.32,1) infinite alternate;
+  transform-origin:50% 50%;
+}
+.component-425--40 .system-regular-58-call-phone--67:hover img.system-regular-58-call-phone--68{
+  animation:social-chat-pulse .46s cubic-bezier(.32,1.2,.32,1) infinite alternate;
+  transform-origin:50% 50%;
+}
+@keyframes social-download-bounce{
+  from{transform:translateY(0)}
+  to{transform:translateY(6px)}
+}
+@keyframes social-phone-ring{
+  from{transform:rotate(-16deg) scale(1.03)}
+  to{transform:rotate(16deg) scale(1.03)}
+}
+@keyframes social-email-float{
+  from{transform:translateY(2px) rotate(-8deg)}
+  to{transform:translateY(-5px) rotate(8deg)}
+}
+@keyframes social-chat-pulse{
+  from{transform:scale(.92) rotate(-4deg)}
+  to{transform:scale(1.2) rotate(4deg)}
+}
+
+/* Mobile responsive overrides */
+@media (max-width: 768px){
+  html,
+  body{
+    width:100%;
+    overflow-x:hidden;
+  }
+  img,
+  video{
+    max-width:100%;
+  }
+  .page{
+    width:100%;
+    min-height:0;
+    overflow:hidden;
+  }
+  #site-header{
+    position:sticky;
+    top:0;
+  }
+  .node--1{
+    height:auto;
+    min-height:72px;
+    align-items:center;
+    padding:18px 20px;
+    gap:16px;
+    background-size:cover;
+  }
+  .frame-1937106919--2{
+    width:auto;
+    height:auto;
+  }
+  .portfolio--3{
+    width:auto;
+    font-size:24px;
+    line-height:29px;
+  }
+  .node--4{
+    width:auto;
+    font-size:30px;
+    line-height:28px;
+  }
+  .frame-1937104126--5{
+    display:none;
+  }
+
+  .node--22{
+    height:auto;
+    min-height:calc(100svh - 72px);
+    padding:24px 20px 56px;
+  }
+  .frame-1937104129--23{
+    height:auto;
+    padding:20px 0 0;
+    gap:32px;
+  }
+  .frame-1937107232--24{
+    width:180px;
+    height:180px;
+  }
+  .frame-1937104130--25,
+  .frame-1937107001--26,
+  .frame-1937106999--27{
+    width:100%;
+    height:auto;
+  }
+  .frame-1937106999--27{
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .node--28,
+  .node--29,
+  .node--30,
+  .node--31{
+    width:auto;
+    font-size:clamp(40px, 15vw, 62px);
+    line-height:1.08;
+    text-align:center;
+    white-space:nowrap;
+  }
+  .x-8-ux-j--32,
+  .property-1-variant2--36{
+    width:100%;
+    height:auto;
+    min-height:134px;
+    gap:24px;
+  }
+  .node--33,
+  .node--37{
+    width:100%;
+    font-size:15px;
+    line-height:24px;
+    text-align:center;
+  }
+  .frame-1937106927--34,
+  .frame-1937106927--38,
+  img.vector-4387--35,
+  img.vector-4387--39{
+    width:100%;
+  }
+  .component-425--40{
+    width:224px;
+    max-width:100%;
+  }
+  .frame-1937107010--79{
+    height:auto;
+    width:100%;
+    padding-top:8px;
+    overflow:hidden;
+  }
+  .rectangle-34624808--80,
+  .rectangle-34624809--81{
+    display:none;
+  }
+  .frame-1937107110--82{
+    width:100%;
+    height:auto;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+    padding:0 20px;
+  }
+  .frame-1937107116--83,
+  .frame-1937107006--110,
+  .frame-1937107007--122,
+  .frame-1937107008--152,
+  .frame-1937107009--182{
+    width:100%;
+    height:52px;
+    min-width:0;
+    padding:10px 12px;
+    opacity:.7;
+  }
+
+  .node--212{
+    height:48px;
+  }
+  .node--213{
+    height:auto;
+    padding:56px 20px 72px;
+    align-items:center;
+    gap:32px;
+    overflow:hidden;
+  }
+  .frame-1937106993--214{
+    width:100%;
+    height:auto;
+    flex-direction:column;
+    gap:34px;
+  }
+  .frame-1937106924--215{
+    width:100%;
+    max-width:420px;
+    height:420px;
+    align-self:center;
+  }
+  .image-514-1--224{
+    left:50%;
+    width:100%;
+    margin-left:-50%;
+    top:8%;
+    height:115%;
+    background-size:cover;
+  }
+  .about-me--216{
+    left:50%;
+    width:720px;
+    top:auto;
+    bottom:0;
+    height:104px;
+    transform:translateX(-50%);
+  }
+  .frame-1937107129--225,
+  .frame-1937107130--232{
+    width:230px;
+    height:auto;
+    min-height:112px;
+    padding:16px 20px;
+  }
+  .frame-1937107129--225{
+    left:16px;
+    bottom:16px;
+  }
+  .frame-1937107130--232{
+    top:auto;
+    right:16px;
+    bottom:142px;
+  }
+  .frame-1937107134--239{
+    left:50%;
+    width:260px;
+    height:80px;
+    margin-left:-130px;
+    top:48px;
+  }
+  img.adong-ux-designer--240{
+    left:0;
+    width:260px;
+    height:auto;
+  }
+  .frame-1937107153--241,
+  .frame-1937106929--242,
+  .frame-1937106959--250{
+    width:100%;
+    height:auto;
+  }
+  .frame-1937107153--241{
+    gap:32px;
+  }
+  .frame-1937106929--242,
+  .frame-1937106959--250{
+    gap:14px;
+  }
+  .frame-1937107133--243,
+  .frame-1937107133--251{
+    width:100%;
+    height:auto;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .node--244,
+  .ux--246,
+  .x-2020--247,
+  .node--252,
+  .ui--254,
+  .x-2018-2020--255{
+    width:auto;
+    font-size:26px;
+    line-height:32px;
+    white-space:normal;
+    text-align:left;
+  }
+  .x-1-2-web-3-4-web-5--249,
+  .x-1-2-3-4--257{
+    font-size:14px;
+    line-height:24px;
+    text-align:left;
+  }
+  .frame-1937107167--258{
+    width:100%;
+    height:auto;
+    min-height:42px;
+    overflow-x:auto;
+    padding-bottom:4px;
+  }
+  .frame-1937107163--259{
+    width:max-content;
+  }
+
+  .node--490{
+    height:auto;
+    min-height:0;
+    justify-content:flex-start;
+    padding:72px 20px;
+    gap:40px;
+  }
+  .frame-1937107209--491,
+  .frame-1937107208--492{
+    width:100%;
+    height:auto;
+  }
+  .frame-1937107209--491{
+    flex-direction:column;
+    gap:30px;
+  }
+  .frame-1937107208--492{
+    gap:22px;
+  }
+  .node--493,
+  .ux--495,
+  .node--496{
+    width:100%;
+    white-space:normal;
+    text-align:left;
+  }
+  .node--493{
+    font-size:30px;
+    line-height:36px;
+  }
+  .ux--495,
+  .node--496{
+    font-size:14px;
+    line-height:24px;
+  }
+  .frame-1937107170--497{
+    position:relative;
+    left:auto;
+    top:auto;
+    width:100%;
+    height:546px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+  }
+  .frame-1937107210--595{
+    width:100%;
+    height:360px;
+    align-self:center;
+    transform:scale(.72);
+    transform-origin:top center;
+  }
+
+  .node--617{
+    height:auto;
+    padding:72px 20px;
+    gap:48px;
+  }
+  .frame-1937106930--618{
+    width:100%;
+    height:auto;
+    align-items:flex-start;
+    gap:14px;
+  }
+  .node--619,
+  .node--620,
+  .ux--622,
+  .b-b--623{
+    width:100%;
+    white-space:normal;
+    text-align:left;
+  }
+  .node--619,
+  .node--620{
+    font-size:30px;
+    line-height:36px;
+  }
+  .ux--622,
+  .b-b--623{
+    font-size:14px;
+    line-height:24px;
+  }
+  .frame-1937106896--624{
+    width:100%;
+    height:auto;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+    justify-items:center;
+  }
+  .frame-1937107207--625,
+  .frame-1937107209--726,
+  .frame-1937107208--827,
+  .frame-1937106968--928{
+    width:100%;
+    max-width:365px;
+    height:300px;
+    overflow:hidden;
+  }
+  .frame-1937107207--625 [data-name='Frame 1937106965'],
+  .frame-1937107207--625 [data-name='Frame 1937106966'],
+  .frame-1937107209--726 [data-name='Frame 1937106965'],
+  .frame-1937107209--726 [data-name='Frame 1937106966'],
+  .frame-1937107208--827 [data-name='Frame 1937106965'],
+  .frame-1937107208--827 [data-name='Frame 1937106966'],
+  .frame-1937106968--928 [data-name='Frame 1937106965'],
+  .frame-1937106968--928 [data-name='Frame 1937106966']{
+    width:100% !important;
+  }
+
+  .x-222--1029{
+    height:auto;
+    padding:72px 20px;
+    gap:28px;
+  }
+  .frame-1937106893--1030{
+    width:100%;
+    height:auto;
+    padding:0;
+    gap:16px;
+  }
+  .frame-1937106959--1031{
+    width:100%;
+    height:auto;
+    justify-content:center;
+  }
+  .node--1032,
+  .node--1033{
+    width:auto;
+    font-size:36px;
+    line-height:44px;
+  }
+  .node--1035{
+    width:100%;
+    font-size:14px;
+    line-height:24px;
+    text-align:center;
+  }
+  .frame-1937106975--1036{
+    width:100%;
+    height:auto;
+  }
+  .frame-1937106970--1037,
+  .frame-1937106973--1061,
+  .frame-1937106971--1071,
+  .frame-1937106972--1081{
+    min-height:168px;
+    height:auto;
+    padding:24px 16px;
+    align-items:flex-start;
+    gap:14px;
+  }
+  .frame-1937106974--1038,
+  .frame-1937106974--1062,
+  .frame-1937106974--1072,
+  .frame-1937106974--1082{
+    width:calc(100% - 48px);
+    height:auto;
+    display:grid;
+    grid-template-columns:32px 68px minmax(0,1fr);
+    gap:12px;
+    align-items:flex-start;
+  }
+  .frame-1937106971--1039,
+  .frame-1937106971--1063,
+  .frame-1937106971--1073,
+  .frame-1937106971--1083{
+    width:32px;
+    height:auto;
+    padding:0;
+  }
+  .x-01--1040,
+  .x-02--1064,
+  .x-03--1074,
+  .x-04--1084{
+    font-size:24px;
+    line-height:30px;
+    text-align:left;
+  }
+  .rectangle-34624801--1041,
+  .rectangle-34624801--1065,
+  .rectangle-34624801--1075,
+  .rectangle-34624801--1085{
+    width:24px;
+  }
+  .frame-1937107230--1042,
+  .image-521--1066,
+  .image-521--1076,
+  .image-522--1086{
+    width:68px;
+    height:60px;
+  }
+  .image-520--1043{
+    width:68px;
+    height:60px;
+  }
+  .frame-1937106969--1044,
+  .frame-1937106969--1067,
+  .frame-1937106969--1077,
+  .frame-1937106969--1087{
+    width:100%;
+    height:auto;
+    min-width:0;
+    gap:6px;
+  }
+  .node--1045,
+  .node--1068,
+  .node--1078,
+  .aigc-b--1088{
+    width:100%;
+    font-size:22px;
+    line-height:30px;
+    white-space:normal;
+    text-align:left;
+  }
+  .experience-design-intelligen--1046,
+  .experience-design-intelligen--1069,
+  .experience-design-intelligen--1079,
+  .experience-design-intelligen--1089{
+    width:100%;
+    font-size:12px;
+    line-height:18px;
+    white-space:normal;
+    text-align:left;
+  }
+  img.frame-1937106972--1047,
+  img.frame-1937106972--1070,
+  img.frame-1937106972--1080,
+  img.frame-1937106972--1090{
+    width:44px;
+    height:44px;
+  }
+  .lookthatpeople-nft-introduce--1048,
+  .lookthatpeople-nft-introduce--1060,
+  .property-1-variant2--1049{
+    display:none;
+  }
+
+  .node--1091{
+    height:auto;
+    min-height:720px;
+    padding:80px 20px 60px;
+    gap:32px;
+    overflow:hidden;
+  }
+  .frame-1937106893--1092{
+    height:auto;
+    min-height:620px;
+    padding:72px 0;
+    gap:16px;
+  }
+  .x-1--1093{
+    left:50%;
+    width:900px;
+    height:760px;
+    margin-left:-450px;
+    top:-80px;
+  }
+  .thanks-for--1094,
+  .your-whtaching--1095{
+    width:100%;
+    font-size:42px;
+    line-height:1.05;
+    text-align:center;
+    white-space:normal;
+  }
+  .portfolio--1096,
+  .design-by-adong--1097{
+    width:100%;
+    font-size:20px;
+    line-height:1.2;
+    text-align:center;
+  }
+  .rectangle-34624803--1098{
+    height:96px;
+  }
+  .frame-1937106983--1099{
+    width:100%;
+    height:auto;
+    gap:28px;
+  }
+  .frame-1937106982--1103{
+    width:100%;
+    height:auto;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:14px;
+  }
+  .frame-1937106979--1104,
+  .frame-1937106980--1107,
+  .frame-1937106981--1110{
+    width:100%;
+    height:auto;
+    justify-content:center;
+  }
+  .tel-15808175936--1106,
+  .mail-1062760550-qq-com--1109,
+  .wechat-dong-fitness--1112{
+    width:auto;
+    max-width:calc(100vw - 72px);
+    font-size:14px;
+    line-height:20px;
+    letter-spacing:1px;
+    white-space:normal;
+    text-align:left;
+    word-break:break-word;
+  }
+}
+
+@media (max-width: 480px){
+  .node--1{
+    padding:16px;
+  }
+  .node--28,
+  .node--29,
+  .node--30,
+  .node--31{
+    font-size:clamp(36px, 14vw, 52px);
+  }
+  .frame-1937107110--82{
+    padding:0 16px;
+    gap:10px;
+  }
+  .frame-1937106924--215{
+    height:360px;
+  }
+  .frame-1937107129--225,
+  .frame-1937107130--232{
+    width:205px;
+    padding:14px 16px;
+  }
+  .x-8--228,
+  .intj--235{
+    width:auto;
+    font-size:13px;
+    line-height:20px;
+  }
+  .frame-1937107210--595{
+    transform:scale(.62);
+    height:320px;
+  }
+  .frame-1937106974--1038,
+  .frame-1937106974--1062,
+  .frame-1937106974--1072,
+  .frame-1937106974--1082{
+    grid-template-columns:28px 56px minmax(0,1fr);
+    gap:10px;
+  }
+  .frame-1937107230--1042,
+  .image-521--1066,
+  .image-521--1076,
+  .image-522--1086,
+  .image-520--1043{
+    width:56px;
+    height:52px;
+  }
+  .node--1045,
+  .node--1068,
+  .node--1078,
+  .aigc-b--1088{
+    font-size:20px;
+    line-height:27px;
+  }
+}
+
+/* 协作流程文档卡:hover 一道克制的斜向流光扫过(配合放大上浮) */
+[data-nid="380:37846"]::after, [data-nid="380:37853"]::after, [data-nid="380:37860"]::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(115deg, transparent 38%, rgba(255,255,255,.07) 47%, rgba(255,255,255,.14) 50%, rgba(255,255,255,.07) 53%, transparent 62%) no-repeat;
+  background-size:260% 100%;
+  background-position:125% 0;
+}
+[data-nid="380:37846"]:hover::after, [data-nid="380:37853"]:hover::after, [data-nid="380:37860"]:hover::after{
+  background-position:-65% 0;
+  transition:background-position .95s cubic-bezier(.215,.61,.355,1) .12s;
+}
+
+/* 技能卡:hover 轻微上浮,过渡柔和(变体内容交叉淡入由生成规则负责) */
+[data-nid="405:3483"], [data-nid="409:125668"], [data-nid="408:98893"], [data-nid="409:125770"]{
+  transition:transform .35s cubic-bezier(.215,.61,.355,1);
+}
+[data-nid="405:3483"]:hover, [data-nid="409:125668"]:hover, [data-nid="408:98893"]:hover, [data-nid="409:125770"]:hover{
+  transform:var(--fx,translate(0,0)) translateY(-6px);
+}
+
+/* ============================================================
+   移动端补强(2026-06,用 [data-nid]/#id 稳定选择器,覆盖前面 @media)
+   主要修复:协作区胶囊溢出/卡片重叠/流程竖轨溢出;自我介绍头像裁切
+   ============================================================ */
+@media (max-width:767px){
+  /* —— 协作流程 —— */
+  /* 溢出的流程竖轨(6列183px)在手机无意义,隐藏 */
+  #collab [data-nid="345:3464"]{ display:none !important; }
+
+  /* 6个阶段胶囊:全宽堆叠,内部改竖排(彩色标签条 + 灰色描述块) */
+  #collab [data-nid="423:46288"]{ width:100% !important; gap:10px !important; }
+  #collab [data-nid="423:46288"] > [data-nid]{
+    width:100% !important; min-width:0 !important; height:auto !important;
+    flex-direction:column !important; align-items:stretch !important;
+  }
+  /* hover 展开副本层在触屏不用,隐藏避免叠加错位 */
+  #collab [data-nid="423:46288"] .v-alt,
+  #collab [data-nid="423:46288"] .v-sub{ display:none !important; }
+  /* 彩色标签条:整条 */
+  #collab [data-nid="423:46288"] [data-name="Frame 1937107180"]{
+    width:100% !important; align-self:stretch !important;
+  }
+  /* 灰色描述块:自适应宽高、文字换行 */
+  #collab [data-nid="423:46288"] [data-name="Frame 1937107188"]{
+    width:100% !important; height:auto !important; min-width:0 !important; flex:0 0 auto !important;
+  }
+  #collab [data-nid="423:46288"] [data-name="Frame 1937107188"] *{
+    white-space:normal !important; width:auto !important; height:auto !important;
+  }
+
+  /* 倾斜文档卡:取消绝对定位与旋转,竖直堆叠全宽 */
+  #collab [data-nid="374:98915"]{
+    width:100% !important; height:auto !important; transform:none !important;
+    align-self:stretch !important;
+    display:flex !important; flex-direction:column !important; gap:14px !important;
+    margin-top:8px !important;
+  }
+  #collab [data-nid="374:98915"] > [data-nid]{
+    position:relative !important; left:auto !important; top:auto !important;
+    transform:none !important; width:100% !important; height:auto !important;
+    min-height:150px !important;
+  }
+
+  /* —— 自我介绍头像:别把头切掉,顶对齐完整露出 —— */
+  .image-514-1--224{
+    left:0 !important; width:100% !important; margin-left:0 !important;
+    top:0 !important; height:100% !important;
+    background-size:contain !important; background-position:center top !important;
+    background-repeat:no-repeat !important;
+  }
+  .frame-1937106924--215{ height:300px !important; background:transparent !important; }
+}
+
+
+/* 首屏平台行:无缝横向滚动跑马灯。每项占 1/5 屏宽→一屏正好 5 个;10 项两组 translateX(-50%) 精确无缝 */
+.plat-marquee{ display:flex; flex:none; width:max-content; align-items:center; animation:plat-scroll 26s linear infinite; }
+.plat-marquee > *{ flex:none !important; width:384px !important; justify-content:center !important; margin:0 !important; }  /* 1920/5,整站缩放下恒为 1/5 屏 */
+/* hover 变体层默认钉在 left:0,而默认内容被 justify-content 居中→hover 时图标左跳。把变体层也居中对齐 */
+.plat-marquee > * > .v-alt, .plat-marquee > * > .v-tmo{ left:50% !important; transform:translateX(-50%) !important; }
+.plat-marquee:hover{ animation-play-state:paused; }
+@keyframes plat-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+/* 手机端平台跑马灯:每项占 ~半屏(2个/屏),配合 #home 区不缩放的反流式 */
+@media (max-width:768px){ .plat-marquee > *{ width:50vw !important; } }
