@@ -81,3 +81,35 @@ Retry the push with approved external network access.
 - Related Files: .learnings/ERRORS.md
 
 ---
+
+## [ERR-20260714-004] inline-script-syntax-check
+
+**Logged**: 2026-07-14T16:45:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: tests
+
+### Summary
+The first inline-script syntax check selected the wrong HTML line range and sent a `<link>` element to Node.
+
+### Error
+```
+SyntaxError: Unexpected token '<'
+```
+
+### Context
+- Operation: extract the newly edited head script with fixed `sed` line numbers and pipe it to `node --check`.
+- The script had shifted after the edit, so the extraction began one line too early.
+
+### Suggested Fix
+Extract script contents by matching the surrounding `<script>` tags instead of relying on fixed line numbers.
+
+### Metadata
+- Reproducible: yes
+- Related Files: index.html, mobile/index.html
+
+### Resolution
+- **Resolved**: 2026-07-14T16:46:00+08:00
+- **Notes**: Switched the validation to tag-based extraction.
+
+---
