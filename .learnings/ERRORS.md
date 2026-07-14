@@ -26,6 +26,34 @@ Serve the workspace from an approved local HTTP origin before browser-driven vis
 
 ---
 
+## [ERR-20260714-003] web-live-site-open
+
+**Logged**: 2026-07-14T16:30:00+08:00
+**Priority**: low
+**Status**: pending
+**Area**: tests
+
+### Summary
+The web inspection tool refused to open the inferred GitHub Pages URL directly.
+
+### Error
+```
+URL https://adong-portfolio.github.io/ is not safe to open.
+```
+
+### Context
+- Attempted to verify the deployed theme-color markup after a mobile status-bar report.
+- Local source and Git remote state remained available for inspection.
+
+### Suggested Fix
+Use an explicitly supplied deployment URL or verify the deployed response through an approved network command.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: index.html, mobile/index.html, manifest.webmanifest
+
+---
+
 ## [ERR-20260714-002] git-push-network
 
 **Logged**: 2026-07-14T00:00:00+08:00
