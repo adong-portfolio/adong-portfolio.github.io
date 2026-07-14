@@ -26,6 +26,39 @@ Serve the workspace from an approved local HTTP origin before browser-driven vis
 
 ---
 
+## [ERR-20260714-005] git-push-http2
+
+**Logged**: 2026-07-14T17:12:00+08:00
+**Priority**: medium
+**Status**: resolved
+**Area**: infra
+
+### Summary
+GitHub rejected the first push attempt because the HTTP/2 connection failed at the framing layer.
+
+### Error
+```
+fatal: unable to access repository: Error in the HTTP2 framing layer
+```
+
+### Context
+- Operation: `git push origin main` after committing the Quark non-immersive status-bar correction.
+- The local commits remained intact.
+
+### Suggested Fix
+Retry the push with Git configured to use HTTP/1.1 for this invocation.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: .learnings/ERRORS.md
+- See Also: ERR-20260714-002
+
+### Resolution
+- **Resolved**: 2026-07-14T17:13:00+08:00
+- **Notes**: Retried with `git -c http.version=HTTP/1.1 push origin main`.
+
+---
+
 ## [ERR-20260714-003] web-live-site-open
 
 **Logged**: 2026-07-14T16:30:00+08:00
