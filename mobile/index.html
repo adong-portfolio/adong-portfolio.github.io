@@ -18,13 +18,13 @@
 <link rel="preload" href="../fonts/Inter.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/Persagy-Regular.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/home-hero.png" as="image">
-<script>/* 夸克自动启用沉浸式黑色状态栏；宽屏切回桌面端并保留容器参数。 */
+<script>/* 夸克保留非沉浸式黑色状态栏；宽屏切回桌面端并保留容器参数。 */
 (function(){try{
   var isQuark=/Quark|UCBrowser|AliApp\(QK/i.test(navigator.userAgent||'');
   if(isQuark){
     var query=new URLSearchParams(location.search),biz=query.get('uc_biz_str')||'';
-    if(biz.indexOf('OPT:IMMERSIVE@1')<0||biz.indexOf('OPT:S_BG_COLOR@000000')<0){
-      query.set('uc_biz_str','OPT:W_PAGE_REFRESH@0|OPT:BACK_BTN_STYLE@0|OPT:W_ENTER_ANI@1|OPT:TOOLBAR_STYLE@0|OPT:IMMERSIVE@1|OPT:S_BAR_MODE@1|OPT:S_BG_COLOR@000000');
+    if(biz.indexOf('OPT:IMMERSIVE@0')<0||biz.indexOf('OPT:S_BG_COLOR@000000')<0){
+      query.set('uc_biz_str','OPT:W_PAGE_REFRESH@0|OPT:BACK_BTN_STYLE@0|OPT:W_ENTER_ANI@1|OPT:TOOLBAR_STYLE@0|OPT:IMMERSIVE@0|OPT:S_BAR_MODE@1|OPT:S_BG_COLOR@000000');
       location.replace(location.pathname+'?'+query.toString()+location.hash);return;
     }
   }
