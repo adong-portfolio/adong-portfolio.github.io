@@ -1,0 +1,11 @@
+{
+  "name": "阿东作品集",
+  "short_name": "阿东作品集",
+  "start_url": "./mobile/index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "lang": "zh-CN"
+}

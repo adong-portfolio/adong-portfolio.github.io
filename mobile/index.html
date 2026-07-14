@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#0d0f0e">
+<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="dark">
 <meta name="supported-color-schemes" content="dark">
 <meta name="mobile-web-app-capable" content="yes">
@@ -11,8 +13,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="阿东作品集">
 <meta name="application-name" content="阿东作品集">
-<meta name="msapplication-navbutton-color" content="#0d0f0e">
-<link rel="manifest" href="../../manifest.webmanifest">
+<meta name="msapplication-navbutton-color" content="#000000">
+<link rel="manifest" href="../manifest.webmanifest">
 <link rel="preload" href="../fonts/Inter.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/Persagy-Regular.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/home-hero.png" as="image">
@@ -70,6 +72,7 @@ body{
   -webkit-font-smoothing:antialiased;
   display:flex;justify-content:center;
 }
+body::before{content:'';position:fixed;left:0;right:0;top:0;height:env(safe-area-inset-top);z-index:2147483647;pointer-events:none;background:#000}
 img,svg,video,canvas{
   display:block;user-select:none;-webkit-user-select:none;-webkit-user-drag:none;
   -webkit-touch-callout:none
@@ -531,17 +534,17 @@ body{background:var(--bg)}
 .contact-card.open{border-color:#2d2d2d;box-shadow:none}
 .contact-card .contact-head{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;background:none;border:0;color:#fff;text-align:left;font-family:var(--sans);cursor:pointer;padding:0}
 .contact-card .left{display:flex;align-items:center;gap:16px;min-width:0}
-.contact-card .ico{width:var(--ct-icon-size);height:var(--ct-icon-size);border-radius:999px;background:#242629;border:1px solid #838383;display:flex;align-items:center;justify-content:center;flex:none;color:#b9b9b9;transition:all .42s cubic-bezier(.22,.61,.36,1)}
+.contact-card .ico{width:var(--ct-icon-size);height:var(--ct-icon-size);min-width:var(--ct-icon-size);min-height:var(--ct-icon-size);aspect-ratio:1/1;border-radius:50%;background:#242629;border:1px solid #838383;display:flex;align-items:center;justify-content:center;flex:0 0 var(--ct-icon-size);color:#b9b9b9;transition:background-color .42s cubic-bezier(.22,.61,.36,1),border-color .42s cubic-bezier(.22,.61,.36,1),box-shadow .42s cubic-bezier(.22,.61,.36,1),color .42s cubic-bezier(.22,.61,.36,1)}
 .contact-card.open .ico{background:#1d2421;border-color:#93c4a6;color:var(--green);box-shadow:0 0 18px rgba(59,243,157,.08) inset}
-.contact-card .ico img{width:25px;height:25px;display:block;object-fit:contain}
+.contact-card .ico img{width:25px;height:25px;aspect-ratio:1/1;display:block;flex:0 0 25px;object-fit:contain}
 .contact-card .ico .on{display:none}
 .contact-card.open .ico .on{display:block}
 .contact-card.open .ico .off{display:none}
 .contact-card .meta{min-width:0}
 .contact-card .label{display:block;font-size:14px;line-height:1.2;color:#fff}
 .contact-card .value{display:block;margin-top:4px;font-size:12px;line-height:1.2;color:rgba(255,255,255,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.contact-card .toggle{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;transition:transform .42s cubic-bezier(.22,.61,.36,1)}
-.contact-card .toggle img{width:24px;height:24px;display:block}
+.contact-card .toggle{width:24px;height:24px;min-width:24px;min-height:24px;aspect-ratio:1/1;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 24px;transition:transform .42s cubic-bezier(.22,.61,.36,1)}
+.contact-card .toggle img{width:24px;height:24px;aspect-ratio:1/1;display:block;object-fit:contain}
 .contact-card .toggle .up{display:none}
 .contact-card.open .toggle .up{display:block}
 .contact-card.open .toggle .down{display:none}
@@ -549,7 +552,7 @@ body{background:var(--bg)}
   transition:max-height .62s cubic-bezier(.22,.61,.36,1),opacity .42s ease,transform .55s cubic-bezier(.22,.61,.36,1)}
 .contact-card.open .contact-body{max-height:140px;opacity:1;transform:translateY(0)}
 .contact-card .body-inner{margin-top:16px;border-radius:16px;padding:8px;background:linear-gradient(90deg,#2f3135 0%,#141517 100%);display:flex;gap:24px;align-items:center;min-height:var(--ct-body-min)}
-.contact-card .visual{width:var(--ct-visual-size);height:var(--ct-visual-size);border-radius:10px;position:relative;flex:none;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.contact-card .visual{width:var(--ct-visual-size);height:var(--ct-visual-size);min-width:var(--ct-visual-size);min-height:var(--ct-visual-size);aspect-ratio:1/1;border-radius:10px;position:relative;flex:0 0 var(--ct-visual-size);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .contact-card .visual img{max-width:100%;max-height:100%;object-fit:contain}
 .contact-card[data-contact="wechat"] .visual img{width:100%;height:100%;border-radius:4px}
 .contact-card[data-contact="email"] .visual,.contact-card[data-contact="phone"] .visual{width:var(--ct-visual-size);height:var(--ct-visual-size)}
@@ -998,10 +1001,10 @@ body{background:var(--bg)}
           <article class="contact-card open" data-contact="wechat">
             <button class="contact-head" type="button" aria-expanded="true">
               <span class="left">
-                <span class="ico"><img class="on" src="assets/contact/icon-wechat.svg" alt=""><img class="off" src="assets/contact/icon-wechat-off.svg" alt=""></span>
+                <span class="ico"><img class="on" src="assets/contact/icon-wechat.svg?v=20260714-ratio" alt=""><img class="off" src="assets/contact/icon-wechat-off.svg?v=20260714-ratio" alt=""></span>
                 <span class="meta"><span class="label">微信</span><span class="value">dong_ditness</span></span>
               </span>
-              <span class="toggle"><img class="down" src="assets/contact/icon-arrow-down.svg" alt=""><img class="up" src="assets/contact/icon-arrow-up.svg" alt=""></span>
+              <span class="toggle"><img class="down" src="assets/contact/icon-arrow-down.svg?v=20260714-ratio" alt=""><img class="up" src="assets/contact/icon-arrow-up.svg?v=20260714-ratio" alt=""></span>
             </button>
             <div class="contact-body">
               <div class="body-inner">
@@ -1009,7 +1012,7 @@ body{background:var(--bg)}
                 <div class="body-copy">
                   <div class="body-title"><b>扫描二维码</b> 加我微信</div>
                   <div class="body-sub">长按可以保存图片</div>
-                  <button class="copy-btn" type="button" data-copy="dong_ditness">获取微信号 <img src="assets/contact/icon-copy.svg" alt=""></button>
+                  <button class="copy-btn" type="button" data-copy="dong_ditness">获取微信号 <img src="assets/contact/icon-copy.svg?v=20260714-ratio" alt=""></button>
                 </div>
               </div>
             </div>
@@ -1018,10 +1021,10 @@ body{background:var(--bg)}
           <article class="contact-card" data-contact="email">
             <button class="contact-head" type="button" aria-expanded="false">
               <span class="left">
-                <span class="ico"><img class="off" src="assets/contact/icon-email.svg" alt=""><img class="on" src="assets/contact/icon-email-on.svg" alt=""></span>
+                <span class="ico"><img class="off" src="assets/contact/icon-email.svg?v=20260714-ratio" alt=""><img class="on" src="assets/contact/icon-email-on.svg?v=20260714-ratio" alt=""></span>
                 <span class="meta"><span class="label">邮箱</span><span class="value">1062760550@qq.com</span></span>
               </span>
-              <span class="toggle"><img class="down" src="assets/contact/icon-arrow-down.svg" alt=""><img class="up" src="assets/contact/icon-arrow-up.svg" alt=""></span>
+              <span class="toggle"><img class="down" src="assets/contact/icon-arrow-down.svg?v=20260714-ratio" alt=""><img class="up" src="assets/contact/icon-arrow-up.svg?v=20260714-ratio" alt=""></span>
             </button>
             <div class="contact-body">
               <div class="body-inner">
@@ -1029,7 +1032,7 @@ body{background:var(--bg)}
                 <div class="body-copy">
                   <div class="body-title"><b>发送邮件</b> 和我联系</div>
                   <div class="body-sub">邮箱保证沟通</div>
-                  <button class="copy-btn" type="button" data-copy="1062760550@qq.com">获取邮箱地址 <img src="assets/contact/icon-copy.svg" alt=""></button>
+                  <button class="copy-btn" type="button" data-copy="1062760550@qq.com">获取邮箱地址 <img src="assets/contact/icon-copy.svg?v=20260714-ratio" alt=""></button>
                 </div>
               </div>
             </div>
@@ -1038,10 +1041,10 @@ body{background:var(--bg)}
           <article class="contact-card" data-contact="phone">
             <button class="contact-head" type="button" aria-expanded="false">
               <span class="left">
-                <span class="ico"><img class="off" src="assets/contact/icon-phone.svg" alt=""><img class="on" src="assets/contact/icon-phone-on.svg" alt=""></span>
+                <span class="ico"><img class="off" src="assets/contact/icon-phone.svg?v=20260714-ratio" alt=""><img class="on" src="assets/contact/icon-phone-on.svg?v=20260714-ratio" alt=""></span>
                 <span class="meta"><span class="label">电话</span><span class="value">15808175936</span></span>
               </span>
-              <span class="toggle"><img class="down" src="assets/contact/icon-arrow-down.svg" alt=""><img class="up" src="assets/contact/icon-arrow-up.svg" alt=""></span>
+              <span class="toggle"><img class="down" src="assets/contact/icon-arrow-down.svg?v=20260714-ratio" alt=""><img class="up" src="assets/contact/icon-arrow-up.svg?v=20260714-ratio" alt=""></span>
             </button>
             <div class="contact-body">
               <div class="body-inner">
@@ -1049,7 +1052,7 @@ body{background:var(--bg)}
                 <div class="body-copy">
                   <div class="body-title"><b>拨打电话</b> 和我联系</div>
                   <div class="body-sub">欢迎你的来电</div>
-                  <button class="copy-btn" type="button" data-copy="15808175936">获取电话号码 <img src="assets/contact/icon-copy.svg" alt=""></button>
+                  <button class="copy-btn" type="button" data-copy="15808175936">获取电话号码 <img src="assets/contact/icon-copy.svg?v=20260714-ratio" alt=""></button>
                 </div>
               </div>
             </div>
@@ -1197,8 +1200,7 @@ window.__PARTICLES_V = 'v3-halo-drift'; console.info('[particles] v3 边缘粒�
     setVar('--app-height', h+'px');
     document.documentElement.style.backgroundColor = '#0d0f0e';
     document.body.style.backgroundColor = '#0d0f0e';
-    var theme = document.querySelector('meta[name="theme-color"]');
-    if(theme) theme.setAttribute('content','#0d0f0e');
+    document.querySelectorAll('meta[name="theme-color"]').forEach(function(theme){ theme.setAttribute('content','#000000'); });
     var homeFit = clamp(h/820, .72, 1);
     var abFit = clamp(h/820, .62, 1);
     var pfFit = clamp(h/800, .60, 1);
