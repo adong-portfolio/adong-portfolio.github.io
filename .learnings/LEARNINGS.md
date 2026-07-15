@@ -29,6 +29,37 @@ Use `preserveAspectRatio="xMidYMid meet"` for icon SVGs, give circular container
 
 ---
 
+## [LRN-20260715-001] correction
+
+**Logged**: 2026-07-15T16:37:25+08:00
+**Priority**: high
+**Status**: resolved
+**Area**: frontend
+
+### Summary
+Removing a simulated mobile status bar requires shifting independently positioned homepage decorations by the same design offset.
+
+### Details
+The homepage text flow moved upward when the 44px simulated status bar was hidden, but the absolutely positioned handwritten `Designer` arc kept its original Figma top coordinate. Its absolute coordinate was technically unchanged, yet it dropped from the title area to the subtitle area relative to the surrounding content.
+
+### Suggested Action
+When removing a fixed design spacer, audit absolute-positioned siblings separately; subtract the spacer from their base and responsive minimum coordinates while leaving browser-provided status-bar spacing untouched.
+
+### Metadata
+- Source: user_feedback
+- Related Files: mobile/index.html
+- Tags: mobile, absolute-position, status-bar, figma, responsive
+- Pattern-Key: frontend.remove_spacer_adjust_absolute_siblings
+- Recurrence-Count: 1
+- First-Seen: 2026-07-15
+- Last-Seen: 2026-07-15
+
+### Resolution
+- **Resolved**: 2026-07-15T16:37:25+08:00
+- **Notes**: Shifted the homepage arc base coordinate from 102px to 58px and its short-screen minimum from 72px to 42px.
+
+---
+
 ## [LRN-20260714-002] correction
 
 **Logged**: 2026-07-14T17:05:00+08:00

@@ -70,7 +70,7 @@
   --home-fit:1;
   --aw-fit:1;
   --ct-fit:1;
-  --home-nav-py:11px;--home-arc-top:102px;--home-title-font:28px;--home-title-line:32px;--home-title-gap:12px;
+  --home-nav-py:11px;--home-arc-top:58px;--home-title-font:28px;--home-title-line:32px;--home-title-gap:12px;
   --home-sub-gap:12px;--home-hero-h:224px;--home-hero-gap:28px;--home-stats-bottom:40px;--home-big-h:125px;--home-card-pad:12px;--home-row-gap:12px;--home-small-h:100px;
   --aw-gap:16px;--aw-hero-h:113px;--aw-panel-gap:12px;--aw-panel-h:270px;--aw-panel-pad:12px;--aw-row-h:121.406px;--aw-badge-h:121.406px;--aw-mark-size:104px;--aw-mark-top:3.74px;--aw-pedestal-w:110.16px;--aw-pedestal-h:55.08px;--aw-pedestal-top:75.138px;--aw-ground-top:96.55px;--aw-label-bottom:17.3px;
   --ct-nav-py:11px;--ct-hero-h:194px;--ct-head-font:24px;--ct-head-gap:8px;--ct-script-top:152px;--ct-script-font:31px;--ct-panel-top-pad:28px;--ct-panel-side-pad:12px;--ct-card-gap:10px;--ct-card-pad:16px;--ct-icon-size:48px;--ct-body-min:110px;--ct-visual-size:94px;--ct-line-h:102px;--ct-timeline-min:395px;
@@ -674,7 +674,7 @@ body{background:var(--bg)}
 
     <img class="home-glow-bottom" src="assets/glow-ellipse2.svg" alt="">
 
-    <div class="arc" style="left:180px;top:102px">
+    <div class="arc" style="left:180px">
       <img class="swoosh" src="assets/arc-green.svg?v=20260713-nodot" alt="">
       <span class="word">Designer</span>
     </div>
@@ -1260,7 +1260,8 @@ window.__PARTICLES_V = 'v3-halo-drift'; console.info('[particles] v3 边缘粒�
     setVar('--ct-fit', ctFit.toFixed(3));
 
     setPx('--home-nav-py',11,homeFit,7);
-    setPx('--home-arc-top',102,homeFit,72);
+    /* Figma 的 102px 包含 44px 模拟状态栏；网页端状态栏由浏览器提供。 */
+    setPx('--home-arc-top',58,homeFit,42);
     setPx('--home-title-font',28,homeFit,23);
     setPx('--home-title-line',32,homeFit,27);
     setPx('--home-title-gap',12,homeFit,7);

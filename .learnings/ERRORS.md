@@ -26,6 +26,34 @@ Serve the workspace from an approved local HTTP origin before browser-driven vis
 
 ---
 
+## [ERR-20260715-001] in-app-browser-bootstrap
+
+**Logged**: 2026-07-15T16:37:25+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: tests
+
+### Summary
+The in-app browser runtime failed during local mobile visual verification.
+
+### Error
+```
+Cannot redefine property: process
+```
+
+### Context
+- Operation: initialize the bundled browser-control runtime before inspecting the local mobile homepage.
+- The failure occurred before browser discovery, so source-level and screenshot-coordinate checks were used instead.
+
+### Suggested Fix
+Update the browser runtime bootstrap so it reuses or safely detects the existing immutable `process` shim instead of redefining it.
+
+### Metadata
+- Reproducible: yes
+- Related Files: mobile/index.html
+
+---
+
 ## [ERR-20260714-005] git-push-http2
 
 **Logged**: 2026-07-14T17:12:00+08:00
