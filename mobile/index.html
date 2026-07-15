@@ -172,6 +172,13 @@ body{background:var(--bg)}
 .nav .lead{font-size:14px;line-height:20px;color:#fff;background:none;border:none;font-family:var(--sans);cursor:pointer}
 .nav .menu-btn{width:18px;height:18px;background:none;border:none;cursor:pointer;padding:0;flex:none}
 .nav .menu-btn img{width:18px;height:18px;display:block}
+.pf .nav,.ab .nav{position:relative}
+.pf .entry-designer-title,.ab .entry-designer-title{display:block;opacity:1;visibility:visible;transform:none;
+  transition:opacity .24s ease,transform .36s cubic-bezier(.16,1,.3,1),visibility 0s}
+.pf .entry-home-back,.ab .entry-home-back{display:flex;align-items:center;padding:0;opacity:0;visibility:hidden;transform:translateX(8px);pointer-events:none;
+  transition:opacity .24s ease,transform .36s cubic-bezier(.16,1,.3,1),visibility 0s linear .36s}
+.pf.has-home-return .entry-designer-title,.ab.has-home-return .entry-designer-title{opacity:0;visibility:hidden;transform:translateX(-8px);position:absolute;left:24px;pointer-events:none}
+.pf.has-home-return .entry-home-back,.ab.has-home-return .entry-home-back{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition-delay:0s}
 
 /* 绿色手写弧线装饰 */
 .arc{position:absolute;width:129px;height:127px;pointer-events:none;z-index:2}
@@ -262,6 +269,8 @@ body{background:var(--bg)}
 .card-sm.clock .deco{right:-20px;bottom:-18px;width:87px;height:87px;opacity:.5}
 .card-sm.trophy .deco{right:-15px;bottom:-18px;width:99px;height:88px;opacity:.5;transition:opacity .35s ease,transform .55s cubic-bezier(.16,1,.3,1)}
 .card-sm.trophy{cursor:pointer;transition:border-color .35s ease,background .35s ease,transform .45s cubic-bezier(.16,1,.3,1)}
+.home .card[data-goto]{cursor:pointer}
+.home .card[data-goto]:focus-visible{outline:1px solid rgba(59,243,157,.68);outline-offset:-3px}
 
 /* ================= 精选作品 / 轮播 ================= */
 .pf{--pcard-w:clamp(188px,54vw,208px);--pcard-half:clamp(94px,27vw,104px)}
@@ -746,7 +755,7 @@ body{background:var(--bg)}
         <div class="ish"></div>
       </div>
       <div class="card-row">
-        <div class="card card-sm clock">
+        <div class="card card-sm clock" data-goto="ab" role="button" tabindex="0" aria-label="查看工作经历">
           <img class="deco" src="assets/card-clock.webp" alt="" width="640" height="640" decoding="async">
           <div class="info">
             <div class="head"><img src="assets/icon-book.png" alt=""><span>工作年限</span></div>
@@ -778,7 +787,8 @@ body{background:var(--bg)}
       </span>
     </div>
     <div class="nav">
-      <button class="lead" data-goto="home">返回首页</button>
+      <span class="lead entry-designer-title">DESIGNER</span>
+      <button class="lead entry-home-back" data-goto="home">返回首页</button>
       <button class="menu-btn" data-menu><img src="assets/menu.svg" alt="menu"></button>
     </div>
 
@@ -971,7 +981,8 @@ body{background:var(--bg)}
       </span>
     </div>
     <div class="nav">
-      <span class="lead">DESIGNER</span>
+      <span class="lead entry-designer-title">DESIGNER</span>
+      <button class="lead entry-home-back" data-goto="home">返回首页</button>
       <button class="menu-btn" data-menu><img src="assets/menu.svg" alt="menu"></button>
     </div>
 
@@ -1499,7 +1510,9 @@ window.__PARTICLES_V = 'v3-halo-drift'; console.info('[particles] v3 边缘粒�
   function goIndex(n, entrySource){
     n = Math.max(0, Math.min(order.length-1, n));
     if(n===idx || locked) return;
-    byScreen.awards.classList.toggle('has-home-return', order[n]==='awards' && entrySource==='home-card');
+    ['ab','pf','awards'].forEach(function(name){
+      byScreen[name].classList.toggle('has-home-return', order[n]===name && entrySource==='home-card');
+    });
     var prev = idx; idx = n; locked = true;
     apply(prev);
     setTimeout(function(){ locked=false; }, 780);
@@ -1702,12 +1715,13 @@ window.__PARTICLES_V = 'v3-halo-drift'; console.info('[particles] v3 边缘粒�
     if(g){
       e.preventDefault();
       var target = g.dataset.goto;
+      var entrySource = g.closest('.home .card[data-goto]') ? 'home-card' : undefined;
       closeDrawer();
       if(target === 'awards' && g.closest('.trophy')){
         flyAwardFromHome();
         return;
       }
-      setTimeout(function(){ goName(target); }, drawer.classList.contains('open') ? 0 : 170);
+      setTimeout(function(){ goName(target,entrySource); }, drawer.classList.contains('open') ? 0 : 170);
       return;
     }
     var contactHead = e.target.closest('.contact-card .contact-head');
@@ -1718,10 +1732,10 @@ window.__PARTICLES_V = 'v3-halo-drift'; console.info('[particles] v3 边缘粒�
     if(e.target.closest('[data-close]')){ closeDrawer(); return; }
   });
   document.addEventListener('keydown', function(e){
-    var trophyTrigger = e.target.closest && e.target.closest('.card-sm.trophy[data-goto="awards"]');
-    if(trophyTrigger && (e.key === 'Enter' || e.key === ' ')){
+    var homeCardTrigger = e.target.closest && e.target.closest('.home .card[role="button"][data-goto]');
+    if(homeCardTrigger && (e.key === 'Enter' || e.key === ' ')){
       e.preventDefault();
-      trophyTrigger.click();
+      homeCardTrigger.click();
       return;
     }
     if(e.key === 'Escape' && awardDetailScreen.classList.contains('active')){ closeAwardDetail(false); return; }
