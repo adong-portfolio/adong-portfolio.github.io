@@ -176,7 +176,7 @@ body{background:var(--bg)}
 /* 绿色手写弧线装饰 */
 .arc{position:absolute;width:129px;height:127px;pointer-events:none;z-index:2}
 .arc .swoosh{position:absolute;left:1.9px;top:0;width:127px;height:127px}
-.arc .word{position:absolute;left:2px;top:50px;font-family:var(--script);font-size:33px;line-height:1;color:var(--green);white-space:nowrap}
+.arc .word{position:absolute;left:0;top:53px;font-family:var(--script);font-size:31.4px;line-height:1;color:var(--green);white-space:nowrap}
 
 /* ================= 首页 ================= */
 .home.screen{
@@ -201,7 +201,7 @@ body{background:var(--bg)}
 .home .hero-img{position:relative;height:var(--home-hero-h);margin-top:var(--home-hero-gap);overflow:visible;z-index:1}
 .home .hero-visual{position:absolute;left:6.4%;top:0;width:87.2%;height:100%;transform:none;z-index:1}
 .home .hero-img .glow{position:absolute;left:.8%;top:-17px;width:105.2%;height:221px;transform:none;opacity:.9;z-index:0}
-.home .hero-img .desk{position:absolute;left:-15.65%;top:-48px;width:142.2%;max-width:none;z-index:1}
+.home .hero-img .desk{position:absolute;left:-15.65%;top:-48px;width:142.2%;height:auto;max-width:none;z-index:1}
 
 /* 数据卡片 */
 .stats{position:relative;z-index:4;padding:0 24px var(--home-stats-bottom);margin-top:auto}
@@ -692,7 +692,7 @@ body{background:var(--bg)}
     <div class="hero-img">
       <div class="hero-visual">
         <img class="glow" src="assets/glow-ellipse.svg" alt="">
-        <img class="desk" src="assets/home-hero.webp" alt="工作台" width="1080" height="810" fetchpriority="high" decoding="async">
+        <img class="desk" src="assets/home-hero.webp" alt="工作台" fetchpriority="high" decoding="async">
       </div>
     </div>
 
