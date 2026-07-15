@@ -32,6 +32,17 @@
   function go(e){if(e.matches)location.replace('../index.html'+location.search+location.hash);}
   go(mq);mq.addEventListener?mq.addEventListener('change',go):mq.addListener(go);
 }catch(e){}})();</script>
+<script>/* WebP 在部分旧版 WebView 中解码失败时，自动回退到原 PNG，不让首屏出现破图。 */
+(function(){
+  window.addEventListener('error',function(e){
+    var img=e.target;
+    if(!img || img.tagName!=='IMG' || img.dataset.webpFallback==='1') return;
+    var src=img.currentSrc||img.src||'';
+    if(!/\.webp(?:[?#]|$)/i.test(src)) return;
+    img.dataset.webpFallback='1';
+    img.src=src.replace(/\.webp(?=([?#]|$))/i,'.png');
+  },true);
+})();</script>
 <title>UX设计师-阿东</title>
 <style>
 /* ============ 字体 ============ */
